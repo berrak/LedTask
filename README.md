@@ -1,4 +1,5 @@
 ![Display](./images/ledtask1s.gif)
+
 [![GitHub license](https://img.shields.io/github/license/berrak/LedTask.svg?logo=gnu&logoColor=ffffff)](https://github.com/berrak/My_Macros/blob/master/LICENSE)
 [![GitHub version](https://img.shields.io/github/release/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
 [![GitHub Release Date](https://img.shields.io/github/release-date/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
@@ -38,7 +39,7 @@ Upload the code, and the four LEDs flash seemingly independently of each other.
 
 You can also click on the green `Library Manager` badge above for instructions.
 
-1. Navigate to the [Releases page](https://github.com/berrak/My_Macros/releases).
+1. Navigate to the [Releases page](https://github.com/berrak/LedTask/releases).
 1. Download the latest released ZIP-archive in `~/Arduino/libraries`.
 1. Unzip the archive.
 1. Rename the new directory. Remove *version-code*, or *master* in the name like this for `LedTask`.
