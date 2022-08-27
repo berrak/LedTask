@@ -1,0 +1,15 @@
+# Git ignore list
+.git
+
+# Project files
+.vscode
+.komodotools
+*.komodoproject
+
+# Other potential files
+*.zip
+
+# Build and test
+Makefile
+test/
+build/
