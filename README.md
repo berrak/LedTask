@@ -19,7 +19,7 @@ The purpose of this library is to be a practical eye-opener and encourage writin
 
 ## Set up an Arduino Uno or any other microcontrollers
 
-Connect either four individual LEDs with a limiting resistor to VCC, or get yourself the breadboard-friendly tiny `LEDs and switches, break-out board`. Please see below for how to purchase it.
+Connect either four individual LEDs with a limiting 1 kohm resistor to VCC, or get yourself the breadboard-friendly tiny `LEDs and switches, break-out board`. Please see below for how to purchase it.
 
 | Platform | Digital Pin# | Led# Cathode |
 |-|-|-|
