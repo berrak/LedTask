@@ -35,21 +35,23 @@ Find four free digital pins for any other microcontrollers and adjust them in th
 
 In the Arduino IDE, scroll down the long list below `File->Examples` and find `LedTask`.
 Upload the code, and the four LEDs flash seemingly independently of each other. 
+
+Each instance of a LedTask requires just three lines of code:
+
+- one to declare the instance
+- one to setup timing in setup
+- and one call to update in the loop
+
 ```cpp
 LedTask LedOne = LedTask(12);
 void setup() {
-//             on_ms,off_ms
+//                 on_ms,off_ms
 	LedOne.begin(100, 400);
 }
 void loop() {
 	LedOne.updateBlinkLed();
 }
 ```
-Each instance of a LedTask requires just three lines of code:
-
-- one to declare the instance
-- one to setup timing in setup
-- and one call to update in the loop
 
 ## How to Install
 
