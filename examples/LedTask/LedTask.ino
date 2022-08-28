@@ -8,22 +8,22 @@
 
 #include <LedTask.h>
 
-// Instantiate a few led objects
-LedTask LedOne = LedTask();
-LedTask LedTwo = LedTask();
-LedTask LedThree = LedTask();
-LedTask LedFour = LedTask();
+// Instantiate a few led objects, and set led pin#
+LedTask LedOne = LedTask(12);
+LedTask LedTwo = LedTask(13);
+LedTask LedThree = LedTask(8);
+LedTask LedFour = LedTask(7);
 
 void setup() {
 
 	Serial.begin(9600);
 	delay(1000);  // The only one.
 
-//          led_pin#,on_ms,off_ms
-	LedOne.begin(12, 100, 400);
-	LedTwo.begin(13, 350, 350);
-	LedThree.begin(8, 125, 250);
-	LedFour.begin(7, 500, 400);
+//   LED time: on_ms,off_ms
+	LedOne.begin(100, 400);
+	LedTwo.begin(350, 350);
+	LedThree.begin(125, 250);
+	LedFour.begin(500, 400);
 
 	Serial.println("Setup completed...");
 }
