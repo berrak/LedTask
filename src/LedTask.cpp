@@ -6,21 +6,22 @@
 //               Four LEDs run close to independent of each other on Arduino.
 //============================================================================
 
-#include <LedTask.h>
+#include "LedTask.h"
+#include "Arduino.h"
 
 // Constructor
 LedTask::LedTask(uint8_t pin) {
         led_pin = pin; 
         on_time = 0;
 		off_time = 0; 
-        led_state = OFF; 
+        led_state = 0; 
         previous_millis = 0L;
     };
 
 // Destructor
 LedTask::~LedTask(void) {
-  if (led_pin >= 0)
     pinMode(led_pin, INPUT);
+    led_state = OFF; 
 }
 
 // Defines LED on time, and off time (ms)
