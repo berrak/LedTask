@@ -2,7 +2,7 @@
 // Name        : LedTask.cpp
 // Author      : Created by Debinix Team (C). Licensed under GPL-3.0.
 // Version     : Date 2022-08-25.
-// Description : This example shows the power of non-preemptive multi-tasking.
+// Description : This example shows the power of non-preemptive multitasking.
 //               Four LEDs run close to independent of each other on Arduino.
 //============================================================================
 
@@ -14,15 +14,12 @@ LedTask::~LedTask(void) {
     pinMode(led_pin, INPUT);
 }
 
-// Defines which digital pin# to use, on time, and off time (ms)
-void LedTask::begin(uint8_t p, uint32_t on, uint32_t off) {
+// Defines LED on time, and off time (ms)
+void LedTask::begin(uint32_t on, uint32_t off) {
     {
-      led_pin = p;
       pinMode(led_pin, OUTPUT);
       on_time = on;
       off_time = off;
-      led_state = LOW;
-      previous_millis = 0L;
     }
 }
 

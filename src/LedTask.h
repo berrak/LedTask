@@ -2,7 +2,7 @@
 // Name        : LedTask.h
 // Author      : Created by Debinix Team (C). Licensed under GPL-3.0.
 // Version     : Date 2022-08-25.
-// Description : This example shows the power of non-preemptive multi-tasking.
+// Description : This example shows the power of non-preemptive multitasking.
 //               Four LEDs run close to independent of each other on Arduino.
 //============================================================================
 #pragma once
@@ -21,11 +21,11 @@ class LedTask
 {
   public:
 	// Constructor (in-line defined)
-	LedTask(void) {
-        led_pin = 0; 
+	LedTask(uint8_t pin) {
+        led_pin = pin; 
         on_time = 0;
 		off_time = 0; 
-        led_state = 0; 
+        led_state = OFF; 
         previous_millis = 0L;
     };
 
@@ -33,7 +33,7 @@ class LedTask
 	~LedTask(void);
 
 	// Methods
-	void begin(uint8_t p, uint32_t on, uint32_t off);
+	void begin(uint32_t on, uint32_t off);
 	void updateBlinkLed(void);    // Call this in the loop
 
   private:
