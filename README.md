@@ -18,6 +18,10 @@ The Arduino library `LedTask` shows the power of non-preemptive multitasking. `L
 
 The purpose of this library is to be a practical eye-opener and encourage writing Arduino code differently without inefficient `delay()` calls.
 
+## Library user interface changes
+
+See below for the latest version of available public methods. The library API changed in release v0.2.0.  
+
 ## Set up an Arduino Uno or any other microcontrollers
 
 Connect either four individual LEDs with a limiting 1 kohm resistor to VCC, or get yourself the breadboard-friendly tiny `LEDs and switches, break-out board`. Please see below for how to purchase it.
@@ -52,6 +56,20 @@ void loop() {
 	LedOne.updateBlinkLed();
 }
 ```
+
+## Library methods
+
+```cpp
+#include <LedTask.h>
+```
+#### Public interface
+| Returns | Method | |
+|-|-|-|
+|      | LedTask(uint8_t pin) | Constructor with pin# for the attached LED. |
+|      | ~LedTask(void) | Free LedTask object, set data pin back to INPUT. |
+| void | begin(uint32_t on, uint32_t off) | Defines LED on time, and off time (in ms). |
+| void | updateBlinkLed(void) | Updates state for LED, i.e. ON or OFF, if time is up. |
+
 
 ## How to Install
 
