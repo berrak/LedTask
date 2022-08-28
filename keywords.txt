@@ -11,13 +11,13 @@
 # Classes & Namespaces (KEYWORD1)
 #######################################
 
-LedTask
+LedTask	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-begin
+begin	KEYWORD2
 
 #######################################
 # Instances (KEYWORD3)
@@ -26,5 +26,3 @@ begin
 ######################################
 # Constants (LITERAL1)
 #######################################
-
-

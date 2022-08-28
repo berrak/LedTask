@@ -1,6 +1,7 @@
 ![Display](./images/ledtask1s.gif)
 
 [![GitHub license](https://img.shields.io/github/license/berrak/LedTask.svg?logo=gnu&logoColor=ffffff)](https://github.com/berrak/My_Macros/blob/master/LICENSE)
+[![Installation instructions](https://www.ardu-badge.com/badge/LedTask.svg?)](https://www.ardu-badge.com/LedTask)
 [![GitHub version](https://img.shields.io/github/release/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
 [![GitHub Release Date](https://img.shields.io/github/release-date/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/stargazers)
