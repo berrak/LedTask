@@ -6,22 +6,24 @@
 //               Four LEDs run close to independent of each other on Arduino.
 //============================================================================
 
-#include "LedTask.h"
-#include "Arduino.h"
+// Required includes for Arduino libraries always go first. 
+// The class implementation needs these includes.
+#include "Arduino.h"    
+// Secondly, include required declarations for this class interface.
+#include "LedTask.h"    
 
 // Constructor
 LedTask::LedTask(uint8_t pin) {
         led_pin = pin; 
         on_time = 0;
 		off_time = 0; 
-        led_state = 0; 
+        led_state = LOW; 
         previous_millis = 0L;
     };
 
 // Destructor
 LedTask::~LedTask(void) {
     pinMode(led_pin, INPUT);
-    led_state = OFF; 
 }
 
 // Defines LED on time, and off time (ms)

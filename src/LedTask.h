@@ -6,7 +6,6 @@
 //               Four LEDs run close to independent of each other on Arduino.
 //============================================================================
 #pragma once
-#include "Arduino.h"
 
 // Declarations
 class LedTask
