@@ -20,7 +20,7 @@ The purpose of this library is to be a practical eye-opener and encourage writin
 
 ## Library user interface changes
 
-See below for the latest version of available public [methods](https://github.com/berrak/LedTask#public-interface). The library API changed in release v0.2.0.  
+See below for the latest version of available public [methods](https://github.com/berrak/LedTask#library-methods). The library API changed in release v0.2.0.  
 
 ## Set up an Arduino Uno or any other microcontrollers
 
