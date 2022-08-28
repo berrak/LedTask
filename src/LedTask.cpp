@@ -8,7 +8,16 @@
 
 #include <LedTask.h>
 
-// Class destructor
+// Constructor
+LedTask::LedTask(uint8_t pin) {
+        led_pin = pin; 
+        on_time = 0;
+		off_time = 0; 
+        led_state = OFF; 
+        previous_millis = 0L;
+    };
+
+// Destructor
 LedTask::~LedTask(void) {
   if (led_pin >= 0)
     pinMode(led_pin, INPUT);
@@ -19,7 +28,7 @@ void LedTask::begin(uint32_t on, uint32_t off) {
     {
       pinMode(led_pin, OUTPUT);
       on_time = on;
-      off_time = off;
+      off_time = off; 
     }
 }
 

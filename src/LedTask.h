@@ -20,21 +20,15 @@
 class LedTask
 {
   public:
-	// Constructor (in-line defined)
-	LedTask(uint8_t pin) {
-        led_pin = pin; 
-        on_time = 0;
-		off_time = 0; 
-        led_state = OFF; 
-        previous_millis = 0L;
-    };
+	// Constructor
+	LedTask(uint8_t pin);
 
 	// Destructor
 	~LedTask(void);
 
 	// Methods
 	void begin(uint32_t on, uint32_t off);
-	void updateBlinkLed(void);    // Call this in the loop
+	void updateBlinkLed(void);              // Call this in the loop
 
   private:
 
