@@ -13,7 +13,7 @@
 #include "LedTask.h"    
 
 // Constructor
-LedTask::LedTask(uint8_t pin) {
+LedTask::LedTask(uint16_t pin) {
         led_pin = pin; 
         on_time = 0;
 		off_time = 0; 

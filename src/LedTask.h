@@ -12,7 +12,7 @@ class LedTask
 {
   public:
 	// Constructor
-	LedTask(uint8_t pin);
+	LedTask(uint16_t pin);
 
 	// Destructor
 	~LedTask(void);
@@ -23,7 +23,7 @@ class LedTask
 
   private:
 
-    uint8_t  led_pin;    	// the LED pin#
+    uint16_t led_pin;    	// the LED pin#
     uint32_t on_time;     	// milliseconds of on-time
     uint32_t off_time;    	// milliseconds of off-time
 

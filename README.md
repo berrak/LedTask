@@ -65,7 +65,7 @@ void loop() {
 #### Public interface
 | Returns | Method | |
 |-|-|-|
-|      | LedTask(uint8_t pin) | Constructor with pin# for the attached LED. |
+|      | LedTask(uint16_t pin) | Constructor with pin# for the attached LED. |
 |      | ~LedTask(void) | Free LedTask object, set data pin back to INPUT. |
 | void | begin(uint32_t on, uint32_t off) | Defines LED on time, and off time (in ms). |
 | void | updateBlinkLed(void) | Updates state for LED, i.e. ON or OFF, if time is up. |
