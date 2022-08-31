@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : LedTask.ino
-// Author      : Created by Debinix Team (C). Licensed under GPL-3.0.
+// Author      : Created by Debinix Team (C). The MIT License (MIT).
 // Version     : Date 2022-08-25.
 // Description : This example shows the power of non-preemptive multitasking.
 //               Four LEDs run close to independent of each other on Arduino.
