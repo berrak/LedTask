@@ -1,34 +1,38 @@
-//============================================================================
-// Name        : LedTask.h
-// Author      : Created by Debinix Team (C). The MIT License (MIT).
-// Version     : Date 2022-08-31.
-// Description : This example shows the power of non-preemptive multitasking.
-//               Four LEDs run close to independent of each other on Arduino.
-//============================================================================
+/*!
+ * @file LedTask.h
+ *
+ * This is part of LedTask library for the Arduino platform.
+ *
+ * Written by berrak for Debinix Team.
+ *
+ * The MIT license.
+ *
+ */
+
 #pragma once
 
-// Declarations
+/**************************************************************************/
+/*!
+    @brief  Class that maintain and change state of LED's.
+*/
+/**************************************************************************/
 class LedTask
 {
   public:
-	// Constructor
-	LedTask(uint16_t pin);
+    // Constructor: pin number for attached LED
+    LedTask(uint16_t pin);
+    ~LedTask(void);
 
-	// Destructor
-	~LedTask(void);
-
-	// Methods
-	void begin(uint32_t on, uint32_t off);
-	void updateBlinkLed(void);              // Call this in the loop
+    void begin(uint32_t on, uint32_t off);
+    void updateBlinkLed(void);
 
   private:
 
-    uint16_t led_pin;    	// the LED pin#
-    uint32_t on_time;     	// milliseconds of on-time
-    uint32_t off_time;    	// milliseconds of off-time
+    uint16_t led_pin;       ///< LED pin
+    uint32_t on_time;       ///< milliseconds of on-time
+    uint32_t off_time;      ///< milliseconds of off-time
 
-    // Maintains state variables
-    int led_state;             		 // led_state (ON/OFF) for LED
-    unsigned long previous_millis;   // will store last time LED was updated
+    int led_state;                      ///< led_state (ON/OFF) for LED
+    unsigned long previous_millis;      ///< stores last time LED was updated
 
-};  // Do not forget the final ';' after the class declaration!
+};
