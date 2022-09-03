@@ -3,8 +3,6 @@
  *
  * This is part of LedTask library for the Arduino platform.
  *
- * Written by berrak for Debinix Team.
- *
  * The MIT license.
  *
  */

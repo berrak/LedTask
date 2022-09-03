@@ -13,10 +13,6 @@
  *
  * This library depends only on default installed libraries for Arduino IDE.
  *
- * @section author Author
- *
- * Written by berrak (c) for Debinix Team.
- *
  * @section license License
  *
  * The MIT license.
