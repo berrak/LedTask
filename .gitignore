@@ -5,9 +5,12 @@
 .vscode
 .komodotools
 *.komodoproject
+Doxyfile*
+doxyfile*
 
 # Other potential files
 *.zip
+*.bak
 
 # Build and test
 Makefile
