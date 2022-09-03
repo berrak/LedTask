@@ -15,7 +15,7 @@
  *
  * @section author Author
  *
- * Written by berrak for Debinix Team.
+ * Written by berrak (c) for Debinix Team.
  *
  * @section license License
  *
