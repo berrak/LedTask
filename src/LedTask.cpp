@@ -34,21 +34,19 @@
 */
 /**************************************************************************/
 LedTask::LedTask(uint16_t pin) {
-        led_pin = pin;
-        on_time = 0;
-        off_time = 0;
-        led_state = LOW;
-        previous_millis = 0L;
-    };
+    led_pin = pin;
+    on_time = 0;
+    off_time = 0;
+    led_state = LOW;
+    previous_millis = 0L;
+};
 
 /**************************************************************************/
 /*!
-    @brief  Set Arduino pinMode() as an INPUT.
+    @brief  Deallocate LedTask object, set data pin back to INPUT.
 */
 /**************************************************************************/
-LedTask::~LedTask(void) {
-    pinMode(led_pin, INPUT);
-}
+LedTask::~LedTask(void) { pinMode(led_pin, INPUT); }
 
 /**************************************************************************/
 /*!
@@ -63,9 +61,9 @@ LedTask::~LedTask(void) {
 /**************************************************************************/
 void LedTask::begin(uint32_t ms_on_tm, uint32_t ms_off_tm) {
     {
-      pinMode(led_pin, OUTPUT);
-      on_time = ms_on_tm;
-      off_time = ms_off_tm;
+        pinMode(led_pin, OUTPUT);
+        on_time = ms_on_tm;
+        off_time = ms_off_tm;
     }
 }
 /**************************************************************************/
@@ -128,16 +126,13 @@ void LedTask::updateBlinkLed(void) {
     // check to see if it's time to change the state of the LED
     unsigned long current_millis = millis();
 
-    if((led_state == HIGH) && (current_millis - previous_millis >= on_time))
-    {
-        led_state = LOW;                        //  Turn it off
-        previous_millis = current_millis;       //  Remember the time
-        digitalWrite(led_pin, led_state);       //  Update the actual LED
-    }
-    else if ((led_state == LOW) && (current_millis - previous_millis >= off_time))
-    {
-        led_state = HIGH;                       //  Turn it on
-        previous_millis = current_millis;       //  Remember the time
-        digitalWrite(led_pin, led_state);       //  Update the actual LED
+    if ((led_state == HIGH) && (current_millis - previous_millis >= on_time)) {
+        led_state = LOW;                  //  Turn it off
+        previous_millis = current_millis; //  Remember the time
+        digitalWrite(led_pin, led_state); //  Update the actual LED
+    } else if ((led_state == LOW) && (current_millis - previous_millis >= off_time)) {
+        led_state = HIGH;                 //  Turn it on
+        previous_millis = current_millis; //  Remember the time
+        digitalWrite(led_pin, led_state); //  Update the actual LED
     }
 }

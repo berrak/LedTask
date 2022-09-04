@@ -5,8 +5,11 @@
 .vscode
 .komodotools
 *.komodoproject
+
+# Formatters and checks
 Doxyfile*
 *.doxyfile
+_clang-format
 
 # Other potential files
 *.zip
