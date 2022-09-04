@@ -27,7 +27,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Set which analog pin the user LED is attached to.
+    @brief  Set which pin the user LED is attached to.
 
     @param    pin
               LED pin to toggle ON/OFF.
@@ -43,7 +43,7 @@ LedTask::LedTask(uint16_t pin) {
 
 /**************************************************************************/
 /*!
-    @brief  Set Arduino pinMode() as an input.
+    @brief  Set Arduino pinMode() as an INPUT.
 */
 /**************************************************************************/
 LedTask::~LedTask(void) {
@@ -54,24 +54,73 @@ LedTask::~LedTask(void) {
 /*!
     @brief  Sets the LED on time, and off time respectively.
 
-    @param    on
-              Sets the time, in ms for LED light should stay on.
-    @param    off
-              Sets the time, in ms for LED light should stay off.
+    @param    ms_on_tm
+              Sets the time, in milliseconds for LED light should stay on.
+    @param    ms_off_tm
+              Sets the time, in milliseconds for LED light should stay off.
 
 */
 /**************************************************************************/
-void LedTask::begin(uint32_t on, uint32_t off) {
+void LedTask::begin(uint32_t ms_on_tm, uint32_t ms_off_tm) {
     {
       pinMode(led_pin, OUTPUT);
-      on_time = on;
-      off_time = off;
+      on_time = ms_on_tm;
+      off_time = ms_off_tm;
     }
 }
 /**************************************************************************/
 /*!
     @brief  If defined time has elapsed, changes the state of the LED. This
             method is called in the loop() section in Arduino's sketch.
+*/
+/**************************************************************************/
+
+/**************************************************************************/
+/*!
+@section updateBlinkLed Example
+
+Each instance of a LedTask requires just three lines of code. Avoid any delay()
+calls for non-preemptive multitasking.
+
+- one to declare the instance, on pin 12
+- one to setup timing in setup
+- and one call to update in the loop
+
+@code
+#include <LedTask.h>
+LedTask LedOne = LedTask(12);
+void setup() {
+//               on_ms,off_ms
+    LedOne.begin(100, 400);
+}
+void loop() {
+    LedOne.updateBlinkLed();
+}
+@endcode
+
+Run four LED tasks like this.
+
+@code
+#include <LedTask.h>
+LedTask LedOne = LedTask(12);
+LedTask LedTwo = LedTask(13);
+LedTask LedThree = LedTask(8);
+LedTask LedFour = LedTask(7);
+void setup() {
+//   LED time: on_ms,off_ms
+    LedOne.begin(100, 400);
+    LedTwo.begin(350, 350);
+    LedThree.begin(125, 250);
+    LedFour.begin(500, 400);
+}
+void loop() {
+    // Demo of four independent (blinking LED) tasks
+    LedOne.updateBlinkLed();
+    LedTwo.updateBlinkLed();
+    LedThree.updateBlinkLed();
+    LedFour.updateBlinkLed();
+}
+@endcode
 
 */
 /**************************************************************************/
@@ -81,14 +130,14 @@ void LedTask::updateBlinkLed(void) {
 
     if((led_state == HIGH) && (current_millis - previous_millis >= on_time))
     {
-        led_state = LOW;                        ///< Turn it off
-        previous_millis = current_millis;       ///< Remember the time
-        digitalWrite(led_pin, led_state);       ///< Update the actual LED
+        led_state = LOW;                        //  Turn it off
+        previous_millis = current_millis;       //  Remember the time
+        digitalWrite(led_pin, led_state);       //  Update the actual LED
     }
     else if ((led_state == LOW) && (current_millis - previous_millis >= off_time))
     {
-        led_state = HIGH;                       ///< Turn it on
-        previous_millis = current_millis;       ///< Remember the time
-        digitalWrite(led_pin, led_state);       ///< Update the actual LED
+        led_state = HIGH;                       //  Turn it on
+        previous_millis = current_millis;       //  Remember the time
+        digitalWrite(led_pin, led_state);       //  Update the actual LED
     }
 }

@@ -21,7 +21,7 @@ class LedTask
     LedTask(uint16_t pin);
     ~LedTask(void);
 
-    void begin(uint32_t on, uint32_t off);
+    void begin(uint32_t ms_on_tm, uint32_t ms_off_tm);
     void updateBlinkLed(void);
 
   private:

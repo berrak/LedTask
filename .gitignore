@@ -6,7 +6,7 @@
 .komodotools
 *.komodoproject
 Doxyfile*
-doxyfile*
+*.doxyfile
 
 # Other potential files
 *.zip
