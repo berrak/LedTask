@@ -1,9 +1,9 @@
 ![Display](./images/ledtask1s.gif)
 
-[![GitHub license](https://img.shields.io/github/license/berrak/LedTask.svg?logo=gnu&logoColor=ffffff)](https://github.com/berrak/My_Macros/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/berrak/LedTask.svg?logo=gnu&logoColor=ffffff)](https://github.com/berrak/LedTask/blob/master/LICENSE)
 [![Installation instructions](https://www.ardu-badge.com/badge/LedTask.svg?)](https://www.ardu-badge.com/LedTask)
-[![GitHub version](https://img.shields.io/github/release/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
-[![GitHub Release Date](https://img.shields.io/github/release-date/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
+[![GitHub version](https://img.shields.io/github/release/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/releases/latest)
+[![GitHub Release Date](https://img.shields.io/github/release-date/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/issues)
 [![Documentation](https://img.shields.io/badge/documentation-doxygen-green.svg)](http://berrak.github.io/LedTask/)
