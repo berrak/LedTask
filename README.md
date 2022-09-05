@@ -6,6 +6,7 @@
 [![GitHub Release Date](https://img.shields.io/github/release-date/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/My_Macros/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/issues)
+[![Documentation](https://img.shields.io/badge/documentation-doxygen-green.svg)](http://berrak.github.io/LedTask/)
 
 # Arduino library LedTask
 The Arduino library `LedTask` shows the power of non-preemptive multitasking. `LedTask` shows an elementary example with four LEDs, and these run close to independent of each other. 
@@ -57,23 +58,14 @@ void loop() {
 }
 ```
 
-## Library methods
+## Documentation (GitHub Pages - Doxygen)
 
-```cpp
-#include <LedTask.h>
-```
-#### Public interface
-| Returns | Method | |
-|-|-|-|
-|      | LedTask(uint16_t pin) | Constructor with pin# for the attached LED. |
-|      | ~LedTask(void) | Free LedTask object, set data pin back to INPUT. |
-| void | begin(uint32_t on, uint32_t off) | Defines LED on time, and off time (in ms). |
-| void | updateBlinkLed(void) | Updates state for LED, i.e. ON or OFF, if time is up. |
-
+[Library documentation](https://berrak.github.io/LedTask/classLedTask.html).
 
 ## How to Install
 
-You can also click on the green `Library Manager` badge above for instructions.
+Click on the green `Library Manager` badge above for instructions,
+or use the alternative manual installation procedure.
 
 1. Navigate to the [Releases page](https://github.com/berrak/LedTask/releases).
 1. Download the latest released ZIP-archive in `~/Arduino/libraries`.
@@ -81,8 +73,6 @@ You can also click on the green `Library Manager` badge above for instructions.
 1. Rename the new directory. Remove *version-code*, or *master* in the name like this for `LedTask`.
 1. Restart Arduino IDE.
 1. In Arduino IDE scroll down the long list below `Sketch->Include Library` and find `LedTask`.
-
-For all the details on how to install libraries in the Arduino IDE, please see the [Arduino website](https://www.arduino.cc/en/Guide/Libraries). It is worthwhile reading. 
 
 ## Do you liked the tiny breadboard friendly 'LEDs, and switches break-out board'?
 
