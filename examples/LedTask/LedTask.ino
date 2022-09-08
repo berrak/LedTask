@@ -17,9 +17,9 @@ LedTask LedFour = LedTask(7);
 void setup() {
 
     Serial.begin(9600);
-    delay(1000);  // The only one.
+    delay(1000); // The only one.
 
-//   LED time: on_ms,off_ms
+    //   LED time: on_ms,off_ms
     LedOne.begin(100, 400);
     LedTwo.begin(350, 350);
     LedThree.begin(125, 250);
