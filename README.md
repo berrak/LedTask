@@ -7,6 +7,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/berrak/LedTask.svg?logo=github&logoColor=ffffff)](https://github.com/berrak/LedTask/issues)
 [![Documentation](https://img.shields.io/badge/documentation-doxygen-green.svg)](http://berrak.github.io/LedTask/)
+![Badge Hit Counter](https://visitor-badge.laobi.icu/badge?page_id=berrak_LedTask)
 
 # Arduino library LedTask
 The Arduino library `LedTask` shows the power of non-preemptive multitasking. `LedTask` shows an elementary example with four LEDs, and these run close to independent of each other. 
