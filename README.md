@@ -10,7 +10,7 @@
 ![Badge Hit Counter](https://visitor-badge.laobi.icu/badge?page_id=berrak_LedTask)
 
 # Arduino library LedTask
-The Arduino library `LedTask` shows the power of non-preemptive multitasking. `LedTask` shows an elementary example with four LEDs, and these run close to independent of each other. 
+The Arduino library `LedTask` shows the power of non-preemptive multitasking. `LedTask` shows an elementary example with four LEDs, and these run close to independently of each other. 
 
 ## Why try this library?
 
@@ -20,11 +20,35 @@ The Arduino library `LedTask` shows the power of non-preemptive multitasking. `L
 
 The purpose of this library is to be a practical eye-opener and encourage writing Arduino code differently without inefficient `delay()` calls.
 
-## Library user interface changes
+## The library methods
 
-See below for the latest version of available public [methods](https://github.com/berrak/LedTask#library-methods). The library API changed in release v0.2.0.  
+Instantiation of the object and assigning the pin number:
 
-## Set up an Arduino Uno or any other microcontrollers
+```
+LedTask Led1 = LedTask(7);   // Control a LED
+LedTask Led2 = LedTask(8);   // Control another LED
+LedTask Fan = LedTask(12);   // Control a DC motor with PWM
+```
+Setup variants:
+
+```
+Led1.begin(100, 400); // LED time: on_ms,off_ms
+Fan.begin(5.0);       // Low frequency (5 Hz) PWM output on the 'Fan' pin
+```
+Loop methods usage:
+```
+Led1.updateBlinkLed();   // Blink led with set on/off timing
+Fan.updatePwmTask(40);   // Use 40% duty-cycle, with set frequency
+```
+An attached LED can use PWM to dim the intensity. See below for the complete library documentation.
+There is one last method, which is blocking (uses delay() calls, and thus should not be used in the Arduino loop():
+
+```
+// This produces a burst of three blinks, with 100ms on time and 150 ms off time.
+Led2.pulseLedBlk(3, 100, 150);	
+```
+
+## Run the first example
 
 Connect either four individual LEDs with a limiting 1 kohm resistor to VCC, or get yourself the breadboard-friendly tiny `LEDs and switches, break-out board`. Please see below for how to purchase it.
 
@@ -37,15 +61,13 @@ Connect either four individual LEDs with a limiting 1 kohm resistor to VCC, or g
 
 Find four free digital pins for any other microcontrollers and adjust them in the Arduino example sketch.
 
-## Run the example
-
 In the Arduino IDE, scroll down the long list below `File->Examples` and find `LedTask`.
 Upload the code, and the four LEDs flash seemingly independently of each other. 
 
 Each instance of a LedTask requires just three lines of code:
 
 - one to declare the instance
-- one to setup timing in setup
+- one to setup timing in the setup
 - and one call to update in the loop
 
 ```cpp
@@ -69,19 +91,22 @@ Click on the green `Library Manager` badge above for instructions,
 or use the alternative manual installation procedure.
 
 1. Navigate to the [Releases page](https://github.com/berrak/LedTask/releases).
-1. Download the latest released ZIP-archive in `~/Arduino/libraries`.
+1. Download the latest released ZIP archive in `~`/Arduino/libraries`.
 1. Unzip the archive.
 1. Rename the new directory. Remove *version-code*, or *master* in the name like this for `LedTask`.
 1. Restart Arduino IDE.
 1. In Arduino IDE scroll down the long list below `Sketch->Include Library` and find `LedTask`.
-
-## Do you liked the tiny breadboard friendly 'LEDs, and switches break-out board'?
+Do you like the tiny breadboard-friendly 'LEDs, and switches break-out board'?
 
 You can purchase all the latest designed boards on `Tindie`. 
 
 [![Tindie](./images/tindie-small.png)](https://www.tindie.com/stores/debinix/)
 
 We appreciate your support.
+
+## Library user interface changes
+
+See below for the latest version of available public [methods](https://github.com/berrak/LedTask#library-methods). The library API changed in release v0.2.0.  
 
 ## Starting point and credits
 For a good starting point for understanding non-preemptive multitasking, thank `Bill Earl` and his write-up on the subject in his [article](https://learn.adafruit.com/multi-tasking-the-arduino-part-1?view=all).

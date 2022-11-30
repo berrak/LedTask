@@ -2,7 +2,7 @@
 // File: LedTask_PWM.ino (2022-11-28)
 // Demo: Use PWM to control a small DC motor (fan).
 // The PWM frequency can be set much lower than with other methods.
-// Example board: ESP8266 D1-mini.
+// Example board: ESP8266 D1-mini (alternative ESP32)
 //
 // MIT License
 
@@ -27,8 +27,20 @@
 // SOFTWARE.
 //
 
-#include <Arduino.h>
 #include <LedTask.h>
+
+#if defined(ARDUINO_ARCH_ESP8266)
+#define ANALOG_PIN PIN_A0
+#endif
+#if defined(ARDUINO_ARCH_ESP32)
+#define ANALOG_PIN PIN_DAC2
+#endif
+
+#if !defined(ARDUINO_ARCH_ESP8266) && !defined(ARDUINO_ARCH_ESP32)
+#error "THE EXAMPLE ONLY SUPPORTS INTERRUPT ISR CODE FOR ESP8266/ESP32"
+#endif
+
+#pragma message ( "Interrupt function written only for ESP8266/ESP32" )
 
 #define MYDEBUG // prints percentage PWM high level (ON)
 
@@ -45,9 +57,9 @@ void ICACHE_RAM_ATTR isr(void);
 
 const float pwm_frequency = 5.0; // Hz
 
-// GPIO pins D1-mini ESP8266
+// GPIO pins D1-mini ESP8266 - adjust if using ESP32
 const int pin_pwm_out = 12;
-const int pin_analog_input = PIN_A0;
+const int pin_analog_input = ANALOG_PIN;
 
 const int pin_pedal_switch = 13;
 const int pin_pedal_led = 5;
