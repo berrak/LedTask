@@ -1,4 +1,4 @@
-![Display](./images/ledtask1s.gif)
+![Display](./images/leds.gif)
 
 [![GitHub license](https://img.shields.io/github/license/berrak/LedTask.svg?logo=gnu&logoColor=ffffff)](https://github.com/berrak/LedTask/blob/master/LICENSE)
 [![Installation instructions](https://www.ardu-badge.com/badge/LedTask.svg?)](https://www.ardu-badge.com/LedTask)
