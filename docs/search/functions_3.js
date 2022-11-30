@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7eledtask_16',['~LedTask',['../classLedTask.html#ae4f2034dfa0ec0a7f49a10d169c6f2b4',1,'LedTask']]]
+  ['updateblinkled_19',['updateBlinkLed',['../classLedTask.html#afdb54cebb86d45531364ff4de5a600ac',1,'LedTask']]],
+  ['updatepwmtask_20',['updatePwmTask',['../classLedTask.html#a1865e23ece436f775a0a792633c41214',1,'LedTask']]]
 ];

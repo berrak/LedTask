@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "blopu~",
   1: "l",
   2: "l",
-  3: "blu~",
+  3: "blpu~",
   4: "lop",
   5: "l"
 };
