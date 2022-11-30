@@ -35,9 +35,9 @@
 #define PWM_OFF 0
 
 typedef struct {
-  int button_pin;
-  int count_key_presses;
-  bool enabled;
+    int button_pin;
+    int count_key_presses;
+    bool enabled;
 } ButtonType_t;
 
 // Forward declaration of switch ISR
@@ -67,20 +67,20 @@ LedTask Fan = LedTask(pin_pwm_out);
 // SETUP    SETUP    SETUP    SETUP    SETUP    SETUP    SETUP
 // ------------------------------------------------------------------
 void setup() {
-  Serial.begin(9600);
+    Serial.begin(9600);
 
-  // Enable/disable switch - HIGH when open, LOW when closed
-  pinMode(PedalSwitch.button_pin, INPUT_PULLUP);
-  attachInterrupt(PedalSwitch.button_pin, isr, FALLING);
+    // Enable/disable switch - HIGH when open, LOW when closed
+    pinMode(PedalSwitch.button_pin, INPUT_PULLUP);
+    attachInterrupt(PedalSwitch.button_pin, isr, FALLING);
 
-  // The potentiometer input
-  pinMode(pin_analog_input, INPUT);
+    // The potentiometer input
+    pinMode(pin_analog_input, INPUT);
 
-  // Motor on/off LED controlled by pedalswitch (enable/disable)
-  pinMode(pin_pedal_led, OUTPUT);
-  digitalWrite(pin_pedal_led, LOW);
+    // Motor on/off LED controlled by pedalswitch (enable/disable)
+    pinMode(pin_pedal_led, OUTPUT);
+    digitalWrite(pin_pedal_led, LOW);
 
-  Fan.begin(pwm_frequency);
+    Fan.begin(pwm_frequency);
 }
 
 // ------------------------------------------------------------------
@@ -90,20 +90,20 @@ void setup() {
 // Arduino runs in non-preemptive multitasking!
 void loop() {
 
-  if (PedalSwitch.enabled) {
-    digitalWrite(pin_pedal_led, HIGH); // LED on
-    Fan.updatePwmTask(pwm_on_percentage);
+    if (PedalSwitch.enabled) {
+        digitalWrite(pin_pedal_led, HIGH); // LED on
+        Fan.updatePwmTask(pwm_on_percentage);
 
-  } else {
-    digitalWrite(pin_pedal_led, LOW); // LED off
-    Fan.updatePwmTask(PWM_OFF);
-  }
+    } else {
+        digitalWrite(pin_pedal_led, LOW); // LED off
+        Fan.updatePwmTask(PWM_OFF);
+    }
 
-  analog_input = analogRead(pin_analog_input);
-  pwm_on_percentage = map(analog_input, 0, 1024, 0, 100);
+    analog_input = analogRead(pin_analog_input);
+    pwm_on_percentage = map(analog_input, 0, 1024, 0, 100);
 
 #if defined(MYDEBUG)
-  Serial.println(pwm_on_percentage);
+    Serial.println(pwm_on_percentage);
 #endif
 }
 
@@ -112,20 +112,20 @@ void loop() {
 // ------------------------------------------------------------------
 void ICACHE_RAM_ATTR isr(void) {
 
-  static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
+    static unsigned long last_interrupt_time = 0;
+    unsigned long interrupt_time = millis();
 
-  if (interrupt_time - last_interrupt_time > sw_bounce_delay_time) {
+    if (interrupt_time - last_interrupt_time > sw_bounce_delay_time) {
 
-    PedalSwitch.count_key_presses++;
+        PedalSwitch.count_key_presses++;
 
-    if (PedalSwitch.count_key_presses % 2 == 0) {
-      PedalSwitch.enabled = false;
-    } else {
-      PedalSwitch.enabled = true;
+        if (PedalSwitch.count_key_presses % 2 == 0) {
+            PedalSwitch.enabled = false;
+        } else {
+            PedalSwitch.enabled = true;
+        }
     }
-  }
-  last_interrupt_time = interrupt_time;
+    last_interrupt_time = interrupt_time;
 }
 
 // EOF

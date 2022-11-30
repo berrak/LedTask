@@ -34,13 +34,13 @@
 */
 /**************************************************************************/
 LedTask::LedTask(uint16_t pin) {
-  led_pin = pin;
-  on_time = 0;
-  off_time = 0;
-  led_state = LOW;
-  previous_millis = 0L;
-  pwm_frequency = 0.0;
-  pinMode(led_pin, OUTPUT);
+    led_pin = pin;
+    on_time = 0;
+    off_time = 0;
+    led_state = LOW;
+    previous_millis = 0L;
+    pwm_frequency = 0.0;
+    pinMode(led_pin, OUTPUT);
 };
 
 /**************************************************************************/
@@ -62,10 +62,10 @@ LedTask::~LedTask(void) { pinMode(led_pin, INPUT); }
 */
 /**************************************************************************/
 void LedTask::begin(uint32_t ms_on_tm, uint32_t ms_off_tm) {
-  {
-    on_time = ms_on_tm;
-    off_time = ms_off_tm;
-  }
+    {
+        on_time = ms_on_tm;
+        off_time = ms_off_tm;
+    }
 }
 
 /**************************************************************************/
@@ -77,11 +77,11 @@ void LedTask::begin(uint32_t ms_on_tm, uint32_t ms_off_tm) {
 */
 /**************************************************************************/
 void LedTask::begin(float hz_pwm_frequency) {
-  {
-    if (hz_pwm_frequency > 0) {
-      pwm_frequency = hz_pwm_frequency;
+    {
+        if (hz_pwm_frequency > 0) {
+            pwm_frequency = hz_pwm_frequency;
+        }
     }
-  }
 }
 
 /**************************************************************************/
@@ -141,19 +141,19 @@ void loop() {
 */
 /**************************************************************************/
 void LedTask::updateBlinkLed(void) {
-  // check to see if it's time to change the state of the LED
-  unsigned long current_millis = millis();
+    // check to see if it's time to change the state of the LED
+    unsigned long current_millis = millis();
 
-  if ((led_state == HIGH) && (current_millis - previous_millis >= on_time)) {
-    led_state = LOW;                  //  Turn it off
-    previous_millis = current_millis; //  Remember the time
-    digitalWrite(led_pin, led_state); //  Update the actual LED
-  } else if ((led_state == LOW) &&
-             (current_millis - previous_millis >= off_time)) {
-    led_state = HIGH;                 //  Turn it on
-    previous_millis = current_millis; //  Remember the time
-    digitalWrite(led_pin, led_state); //  Update the actual LED
-  }
+    if ((led_state == HIGH) && (current_millis - previous_millis >= on_time)) {
+        led_state = LOW;                  //  Turn it off
+        previous_millis = current_millis; //  Remember the time
+        digitalWrite(led_pin, led_state); //  Update the actual LED
+    } else if ((led_state == LOW) &&
+               (current_millis - previous_millis >= off_time)) {
+        led_state = HIGH;                 //  Turn it on
+        previous_millis = current_millis; //  Remember the time
+        digitalWrite(led_pin, led_state); //  Update the actual LED
+    }
 }
 
 /**************************************************************************/
@@ -167,13 +167,13 @@ void LedTask::updateBlinkLed(void) {
 /**************************************************************************/
 void LedTask::updatePwmTask(float percentage_high) {
 
-  // Calculate the period in milliseconds, from the required frequency
-  float ms_period = (1.0 / pwm_frequency) * 1000;
+    // Calculate the period in milliseconds, from the required frequency
+    float ms_period = (1.0 / pwm_frequency) * 1000;
 
-  on_time = (percentage_high / 100) * ms_period;
-  off_time = ms_period - on_time;
+    on_time = (percentage_high / 100) * ms_period;
+    off_time = ms_period - on_time;
 
-  updateBlinkLed();
+    updateBlinkLed();
 }
 
 /**************************************************************************/
@@ -192,14 +192,14 @@ void LedTask::updatePwmTask(float percentage_high) {
 void LedTask::pulseLedBlk(uint8_t pulse_cnt, uint32_t ms_on_tm,
                           uint32_t ms_off_tm) {
 
-  for (uint8_t cnt = 0; cnt < pulse_cnt; cnt++) {
-    digitalWrite(led_pin, HIGH);
-    delay(ms_on_tm);
-    if (pulse_cnt > 1) {
-      digitalWrite(led_pin, LOW);
-      delay(ms_off_tm);
-    } else {
-      digitalWrite(led_pin, LOW);
+    for (uint8_t cnt = 0; cnt < pulse_cnt; cnt++) {
+        digitalWrite(led_pin, HIGH);
+        delay(ms_on_tm);
+        if (pulse_cnt > 1) {
+            digitalWrite(led_pin, LOW);
+            delay(ms_off_tm);
+        } else {
+            digitalWrite(led_pin, LOW);
+        }
     }
-  }
 }

@@ -34,11 +34,11 @@
 #define LONG_PRESS_MS_TIME 1000
 
 typedef enum class LedState : uint8_t {
-  NO_PRESS,
-  SW1_SHORT,
-  SW1_LONG,
-  SW2_SHORT,
-  SW2_LONG, // Cnt (i.e, Paus)
+    NO_PRESS,
+    SW1_SHORT,
+    SW1_LONG,
+    SW2_SHORT,
+    SW2_LONG, // Cnt (i.e, Paus)
 } LedStateType_t;
 
 LedStateType_t SwState = LedState::NO_PRESS;
@@ -70,24 +70,24 @@ const int sw_pin2 = 23;
 // ------------------------------------------------------------------
 void setup() {
 
-  Serial.begin(9600);
-  delay(500);
+    Serial.begin(9600);
+    delay(500);
 
-  pinMode(sw_pin1, INPUT);
-  // pinMode(sw_pin1, INPUT_PULLUP); // No need if external pull-up
-  pinMode(sw_pin2, INPUT);
-  // pinMode(sw_pin2, INPUT_PULLUP); // No need if external pull-up
+    pinMode(sw_pin1, INPUT);
+    // pinMode(sw_pin1, INPUT_PULLUP); // No need if external pull-up
+    pinMode(sw_pin2, INPUT);
+    // pinMode(sw_pin2, INPUT_PULLUP); // No need if external pull-up
 
-  // All done
-  Serial.println("Setup completed");
+    // All done
+    Serial.println("Setup completed");
 }
 // ------------------------------------------------------------------
 // MAIN LOOP     MAIN LOOP     MAIN LOOP     MAIN LOOP     MAIN LOOP
 // ------------------------------------------------------------------
 void loop() {
 
-  idleKeyState();
-  updateLeds();
+    idleKeyState();
+    updateLeds();
 }
 
 // ------------------------------------------------------------------
@@ -97,55 +97,55 @@ void loop() {
 // Idle state, does nothing until switch is pressed (long, short)
 //
 void idleKeyState(void) {
-  delay(100); // debounce
+    delay(100); // debounce
 
-  // switch 1
-  if (digitalRead(sw_pin1) == LOW) {
-    if (buttonActive_sw1 == false) {
-      buttonActive_sw1 = true;
-      buttonTimer_sw1 = millis();
+    // switch 1
+    if (digitalRead(sw_pin1) == LOW) {
+        if (buttonActive_sw1 == false) {
+            buttonActive_sw1 = true;
+            buttonTimer_sw1 = millis();
+        }
+        if ((millis() - buttonTimer_sw1 > LONG_PRESS_MS_TIME) &&
+            (longPressActive_sw1 == false)) {
+            longPressActive_sw1 = true;
+            Serial.println("sw1 long press...");
+            SwState = LedState::SW1_LONG;
+        }
+    } else {
+        if (buttonActive_sw1 == true) {
+            if (longPressActive_sw1 == true) {
+                longPressActive_sw1 = false;
+            } else {
+                Serial.println("sw1 short press...");
+                SwState = LedState::SW1_SHORT;
+            }
+            buttonActive_sw1 = false;
+        }
     }
-    if ((millis() - buttonTimer_sw1 > LONG_PRESS_MS_TIME) &&
-        (longPressActive_sw1 == false)) {
-      longPressActive_sw1 = true;
-      Serial.println("sw1 long press...");
-      SwState = LedState::SW1_LONG;
-    }
-  } else {
-    if (buttonActive_sw1 == true) {
-      if (longPressActive_sw1 == true) {
-        longPressActive_sw1 = false;
-      } else {
-        Serial.println("sw1 short press...");
-        SwState = LedState::SW1_SHORT;
-      }
-      buttonActive_sw1 = false;
-    }
-  }
 
-  // switch 2
-  if (digitalRead(sw_pin2) == LOW) {
-    if (buttonActive_sw2 == false) {
-      buttonActive_sw2 = true;
-      buttonTimer_sw2 = millis();
+    // switch 2
+    if (digitalRead(sw_pin2) == LOW) {
+        if (buttonActive_sw2 == false) {
+            buttonActive_sw2 = true;
+            buttonTimer_sw2 = millis();
+        }
+        if ((millis() - buttonTimer_sw2 > LONG_PRESS_MS_TIME) &&
+            (longPressActive_sw2 == false)) {
+            longPressActive_sw2 = true;
+            Serial.println("sw2 long press...");
+            SwState = LedState::SW2_LONG;
+        }
+    } else {
+        if (buttonActive_sw2 == true) {
+            if (longPressActive_sw2 == true) {
+                longPressActive_sw2 = false;
+            } else {
+                Serial.println("sw2 short press...");
+                SwState = LedState::SW2_SHORT;
+            }
+            buttonActive_sw2 = false;
+        }
     }
-    if ((millis() - buttonTimer_sw2 > LONG_PRESS_MS_TIME) &&
-        (longPressActive_sw2 == false)) {
-      longPressActive_sw2 = true;
-      Serial.println("sw2 long press...");
-      SwState = LedState::SW2_LONG;
-    }
-  } else {
-    if (buttonActive_sw2 == true) {
-      if (longPressActive_sw2 == true) {
-        longPressActive_sw2 = false;
-      } else {
-        Serial.println("sw2 short press...");
-        SwState = LedState::SW2_SHORT;
-      }
-      buttonActive_sw2 = false;
-    }
-  }
 }
 
 //
@@ -153,43 +153,43 @@ void idleKeyState(void) {
 //
 void updateLeds(void) {
 
-  // Note: LedTask::pulseLedBlk() uses delay() calls
-  switch (SwState) {
-  case LedState::NO_PRESS:
-    break;
+    // Note: LedTask::pulseLedBlk() uses delay() calls
+    switch (SwState) {
+    case LedState::NO_PRESS:
+        break;
 
-  case LedState::SW1_SHORT: // a few short pulses on red LED
+    case LedState::SW1_SHORT: // a few short pulses on red LED
 
-    // Three pulses, on_ms,off_ms
-    LedRed.pulseLedBlk(3, 100, 150);
+        // Three pulses, on_ms,off_ms
+        LedRed.pulseLedBlk(3, 100, 150);
 
-    break;
+        break;
 
-  case LedState::SW1_LONG: // one longer pulses on yellow LED
+    case LedState::SW1_LONG: // one longer pulses on yellow LED
 
-    // one pulse, on_ms,off_ms
-    LedYellow.pulseLedBlk(1, 1000, 0); // 'off_ms' is ignored for one pulse
+        // one pulse, on_ms,off_ms
+        LedYellow.pulseLedBlk(1, 1000, 0); // 'off_ms' is ignored for one pulse
 
-    break;
+        break;
 
-  case LedState::SW2_SHORT: // a few short pulses on green LED
+    case LedState::SW2_SHORT: // a few short pulses on green LED
 
-    // Three pulses, on_ms,off_ms
-    LedGreen.pulseLedBlk(3, 100, 150);
+        // Three pulses, on_ms,off_ms
+        LedGreen.pulseLedBlk(3, 100, 150);
 
-    break;
+        break;
 
-  case LedState::SW2_LONG: //  one longer pulses on blue LED
+    case LedState::SW2_LONG: //  one longer pulses on blue LED
 
-    // one pulse, on_ms,off_ms
-    LedBlue.pulseLedBlk(1, 1000, 0); // 'off_ms' is ignored for one pulse
+        // one pulse, on_ms,off_ms
+        LedBlue.pulseLedBlk(1, 1000, 0); // 'off_ms' is ignored for one pulse
 
-    break;
+        break;
 
-  default:
-    // Nothing to do here
-    Serial.println("'Default' Switch Case reached - Error");
-  }
+    default:
+        // Nothing to do here
+        Serial.println("'Default' Switch Case reached - Error");
+    }
 
-  SwState = LedState::NO_PRESS;
+    SwState = LedState::NO_PRESS;
 }
