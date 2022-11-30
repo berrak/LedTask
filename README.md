@@ -106,7 +106,7 @@ We appreciate your support.
 
 ## Library user interface changes
 
-See below for the latest version of available public [methods](https://github.com/berrak/LedTask#library-methods). The library API changed in release v0.2.0.  
+The library API changed in release v0.2.0.  
 
 ## Starting point and credits
 For a good starting point for understanding non-preemptive multitasking, thank `Bill Earl` and his write-up on the subject in his [article](https://learn.adafruit.com/multi-tasking-the-arduino-part-1?view=all).
