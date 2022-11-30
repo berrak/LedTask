@@ -40,7 +40,7 @@ Loop methods usage:
 Led1.updateBlinkLed();   // Blink led with set on/off timing
 Fan.updatePwmTask(40);   // Use 40% duty-cycle, with set frequency
 ```
-An attached LED can use PWM to dim the intensity. See below for the complete library documentation.
+An attached LED can use PWM to dim the intensity. See below for the complete [library documentation](https://github.com/berrak/LedTask#documentation-github-pages---doxygen).
 There is one last method, which is blocking (uses delay() calls, and thus should not be used in the Arduino loop():
 
 ```
