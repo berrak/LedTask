@@ -50,7 +50,7 @@ Led2.pulseLedBlk(3, 100, 150);
 
 ## Run the first example
 
-Connect either four individual LEDs with a limiting 1 kOhm resistor to VCC, or get yourself the breadboard-friendly tiny `The TinyLedSwitch - A Universal Breakout Board`. Please see below for how to purchase it.
+Connect either four individual LEDs with a limiting 1 kOhm resistor to VCC, or get yourself the `TinyLedSwitch - A Universal Breakout Board`. Please see below for how to purchase it.
 
 | Platform | Digital Pin# | Led# Cathode |
 |-|-|-|
