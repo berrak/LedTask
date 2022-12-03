@@ -1,8 +1,8 @@
 //
 // File: LedTask_KeyPress.ino (2022-11-28)
 // Demo: Shows two switches, and four LEDs detecting short/long key presses.
-// Example board: UM ESP32 TinyPICO
-// Use the "Four Leds, Two Switches Breakout Board" for this setup.
+// Example board: UM ESP32 TinyPICO (or ESP8266 D1-mini)
+// Use the "The TinyLedSwitch Breakout Board" for this setup.
 // https://www.tindie.com/stores/debinix/
 //
 // MIT License
@@ -38,7 +38,7 @@ typedef enum class LedState : uint8_t {
     SW1_SHORT,
     SW1_LONG,
     SW2_SHORT,
-    SW2_LONG, // Cnt (i.e, Paus)
+    SW2_LONG,
 } LedStateType_t;
 
 LedStateType_t SwState = LedState::NO_PRESS;
@@ -56,15 +56,26 @@ long buttonTimer_sw2 = 0;
 bool buttonActive_sw2 = false;
 bool longPressActive_sw2 = false;
 
-// Instantiate a few led objects, and set led pin#
+// Led objects, and switches attaches to these pins
+#if defined(ARDUINO_ARCH_ESP32)
 LedTask LedBlue = LedTask(27);
 LedTask LedGreen = LedTask(15);
 LedTask LedYellow = LedTask(14);
 LedTask LedRed = LedTask(4);
-
-// the switches attaches to these pins
 const int sw_pin1 = 33;
 const int sw_pin2 = 23;
+#elif defined(ARDUINO_ARCH_ESP8266)
+LedTask LedBlue = LedTask(13);
+LedTask LedGreen = LedTask(12);
+LedTask LedYellow = LedTask(4);
+LedTask LedRed = LedTask(5);
+const int sw_pin1 = 3;
+const int sw_pin2 = 14;
+#else
+#error "THIS EXAMPLE IS WRITTEN FOR ESP8266 OR ESP32"
+#endif
+
+
 // ------------------------------------------------------------------
 // SETUP    SETUP    SETUP    SETUP    SETUP    SETUP    SETUP
 // ------------------------------------------------------------------
@@ -73,10 +84,13 @@ void setup() {
     Serial.begin(9600);
     delay(500);
 
+    // Use external pull-up resistors on breakout board (connect VCC)
     pinMode(sw_pin1, INPUT);
-    // pinMode(sw_pin1, INPUT_PULLUP); // No need if external pull-up
     pinMode(sw_pin2, INPUT);
-    // pinMode(sw_pin2, INPUT_PULLUP); // No need if external pull-up
+    
+    // Use device built-in internal pull-up resistors 
+    // pinMode(sw_pin1, INPUT_PULLUP);
+    // pinMode(sw_pin2, INPUT_PULLUP);
 
     // All done
     Serial.println("Setup completed");

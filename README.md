@@ -50,7 +50,7 @@ Led2.pulseLedBlk(3, 100, 150);
 
 ## Run the first example
 
-Connect either four individual LEDs with a limiting 1 kohm resistor to VCC, or get yourself the breadboard-friendly tiny `LEDs and switches, break-out board`. Please see below for how to purchase it.
+Connect either four individual LEDs with a limiting 1 kOhm resistor to VCC, or get yourself the breadboard-friendly tiny `The TinyLedSwitch - A Universal Breakout Board`. Please see below for how to purchase it.
 
 | Platform | Digital Pin# | Led# Cathode |
 |-|-|-|
@@ -68,7 +68,7 @@ Each instance of a LedTask requires just three lines of code:
 
 - one to declare the instance
 - one to setup timing in the setup
-- and one call to update in the loop
+- and one call to update the loop
 
 ```cpp
 LedTask LedOne = LedTask(12);
@@ -81,6 +81,10 @@ void loop() {
 }
 ```
 
+Another exciting example worth looking at is the capability to separate a short key press from a long key press.
+
+![Display](./images/arduino-long-short-press.png)
+
 ## Documentation (GitHub Pages - Doxygen)
 
 [Library documentation](https://berrak.github.io/LedTask/classLedTask.html).
@@ -91,7 +95,7 @@ Click on the green `Library Manager` badge above for instructions,
 or use the alternative manual installation procedure.
 
 1. Navigate to the [Releases page](https://github.com/berrak/LedTask/releases).
-1. Download the latest released ZIP archive in `~`/Arduino/libraries`.
+1. Download the latest released ZIP archive in `~`/Arduino/libraries.
 1. Unzip the archive.
 1. Rename the new directory. Remove *version-code*, or *master* in the name like this for `LedTask`.
 1. Restart Arduino IDE.
