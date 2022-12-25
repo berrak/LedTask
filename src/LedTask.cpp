@@ -41,6 +41,8 @@ LedTask::LedTask(uint16_t pin) {
     previous_millis = 0L;
     pwm_frequency = 0.0;
     pinMode(led_pin, OUTPUT);
+    
+    instance_count++;
 };
 
 /**************************************************************************/
@@ -202,4 +204,16 @@ void LedTask::pulseLedBlk(uint8_t pulse_cnt, uint32_t ms_on_tm,
             digitalWrite(led_pin, LOW);
         }
     }
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get number of instances created.
+
+    @return The instance count, from 1 ... n
+
+*/
+/**************************************************************************/
+uint16_t LedTask::getInstanceCount(void) {
+    return instance_count;
 }

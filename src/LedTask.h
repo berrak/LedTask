@@ -28,6 +28,9 @@ public:
     // Uses delay() - blocking code
     void pulseLedBlk(uint8_t pulse_cnt, uint32_t ms_on_tm, uint32_t ms_off_tm);
 
+    static inline uint16_t instance_count = 0; ///< counter to keep track of instances
+    static uint16_t getInstanceCount(void);
+
 private:
     uint16_t led_pin;  ///< LED pin
     uint32_t on_time;  ///< milliseconds of on-time

@@ -14,3 +14,4 @@ begin	KEYWORD2
 updateBlinkLed	KEYWORD2
 updatePwmTask	KEYWORD2
 pulseLedBlk	KEYWORD2
+getInstanceCount	KEYWORD2
