@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "blopu~",
+  0: "bgilopu~",
   1: "l",
   2: "l",
-  3: "blpu~",
-  4: "lop",
+  3: "bglpu~",
+  4: "ilop",
   5: "l"
 };
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['off_5ftime_24',['off_time',['../classLedTask.html#a25a498e6f8c25c3765c68216ec08f975',1,'LedTask']]],
-  ['on_5ftime_25',['on_time',['../classLedTask.html#a23f2b51b956429c9d0c89792db83249b',1,'LedTask']]]
+  ['led_5fpin_26',['led_pin',['../classLedTask.html#a4c825dc05d2ba23cd8800b7dd949ae18',1,'LedTask']]],
+  ['led_5fstate_27',['led_state',['../classLedTask.html#ad6a3992fa3fe212c95628b2e16e2c5d8',1,'LedTask']]]
 ];

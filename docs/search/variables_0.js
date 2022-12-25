@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['led_5fpin_22',['led_pin',['../classLedTask.html#a4c825dc05d2ba23cd8800b7dd949ae18',1,'LedTask']]],
-  ['led_5fstate_23',['led_state',['../classLedTask.html#ad6a3992fa3fe212c95628b2e16e2c5d8',1,'LedTask']]]
+  ['instance_5fcount_25',['instance_count',['../classLedTask.html#a7622bd275e6da8369ebb3e158fd5e07a',1,'LedTask']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['off_5ftime_6',['off_time',['../classLedTask.html#a25a498e6f8c25c3765c68216ec08f975',1,'LedTask']]],
-  ['on_5ftime_7',['on_time',['../classLedTask.html#a23f2b51b956429c9d0c89792db83249b',1,'LedTask']]]
+  ['instance_5fcount_2',['instance_count',['../classLedTask.html#a7622bd275e6da8369ebb3e158fd5e07a',1,'LedTask']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['previous_5fmillis_26',['previous_millis',['../classLedTask.html#a4b4aad0c1474235a664f91e810582414',1,'LedTask']]],
-  ['pwm_5ffrequency_27',['pwm_frequency',['../classLedTask.html#a31c51fb4dab87d3fd452fea707031e31',1,'LedTask']]]
+  ['off_5ftime_28',['off_time',['../classLedTask.html#a25a498e6f8c25c3765c68216ec08f975',1,'LedTask']]],
+  ['on_5ftime_29',['on_time',['../classLedTask.html#a23f2b51b956429c9d0c89792db83249b',1,'LedTask']]]
 ];

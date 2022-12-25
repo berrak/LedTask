@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updateblinkled_11',['updateBlinkLed',['../classLedTask.html#afdb54cebb86d45531364ff4de5a600ac',1,'LedTask']]],
-  ['updatepwmtask_12',['updatePwmTask',['../classLedTask.html#a1865e23ece436f775a0a792633c41214',1,'LedTask']]]
+  ['off_5ftime_8',['off_time',['../classLedTask.html#a25a498e6f8c25c3765c68216ec08f975',1,'LedTask']]],
+  ['on_5ftime_9',['on_time',['../classLedTask.html#a23f2b51b956429c9d0c89792db83249b',1,'LedTask']]]
 ];
