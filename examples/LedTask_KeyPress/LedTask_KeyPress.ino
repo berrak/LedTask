@@ -75,7 +75,6 @@ const int sw_pin2 = 14;
 #error "THIS EXAMPLE IS WRITTEN FOR ESP8266 OR ESP32"
 #endif
 
-
 // ------------------------------------------------------------------
 // SETUP    SETUP    SETUP    SETUP    SETUP    SETUP    SETUP
 // ------------------------------------------------------------------
@@ -87,8 +86,8 @@ void setup() {
     // Use external pull-up resistors on breakout board (connect VCC)
     pinMode(sw_pin1, INPUT);
     pinMode(sw_pin2, INPUT);
-    
-    // Use device built-in internal pull-up resistors 
+
+    // Use device built-in internal pull-up resistors
     // pinMode(sw_pin1, INPUT_PULLUP);
     // pinMode(sw_pin2, INPUT_PULLUP);
 

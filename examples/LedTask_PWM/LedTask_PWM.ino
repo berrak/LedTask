@@ -40,7 +40,7 @@
 #error "THE EXAMPLE ONLY SUPPORTS INTERRUPT ISR CODE FOR ESP8266/ESP32"
 #endif
 
-#pragma message ( "Interrupt function written only for ESP8266/ESP32" )
+#pragma message("Interrupt function written only for ESP8266/ESP32")
 
 #define MYDEBUG // prints percentage PWM high level (ON)
 
