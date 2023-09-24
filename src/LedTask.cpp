@@ -146,11 +146,12 @@ void LedTask::updateBlinkLed(void) {
     // check to see if it's time to change the state of the LED
     unsigned long current_millis = millis();
 
-    if ((led_state == HIGH) && (current_millis - previous_millis >= on_time)) {
+    if ((led_state == HIGH) && (off_time > 0) &&
+               (current_millis - previous_millis >= on_time)) {
         led_state = LOW;                  //  Turn it off
         previous_millis = current_millis; //  Remember the time
         digitalWrite(led_pin, led_state); //  Update the actual LED
-    } else if ((led_state == LOW) &&
+    } else if ((led_state == LOW) && (on_time > 0) &&
                (current_millis - previous_millis >= off_time)) {
         led_state = HIGH;                 //  Turn it on
         previous_millis = current_millis; //  Remember the time
